@@ -34,7 +34,6 @@
       overflow-x: hidden;
     }
 
-    /* Keyframe Animations */
     @keyframes heroGlow {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
@@ -62,7 +61,6 @@
       100% { transform: translateX(100%); }
     }
 
-    /* Navbar */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -74,7 +72,6 @@
       top: 0;
       z-index: 1000;
       backdrop-filter: blur(12px);
-      transition: border-color 0.3s ease;
     }
 
     .brand-logo { 
@@ -82,9 +79,7 @@
       align-items: center; 
       gap: 12px; 
       text-decoration: none; 
-      transition: transform 0.3s ease;
     }
-    .brand-logo:hover { transform: scale(1.02); }
     .brand-logo img { 
       height: 45px; 
       width: auto; 
@@ -117,9 +112,7 @@
       transform: translateY(-2px);
       box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
     }
-    .cart-btn:active { transform: translateY(0); }
 
-    /* Hero Banner with Motion Glow */
     .hero {
       text-align: center;
       padding: 70px 20px;
@@ -127,7 +120,6 @@
       background-size: 400% 400%;
       animation: heroGlow 12s ease infinite;
       border-bottom: 1px solid rgba(212, 175, 55, 0.15);
-      position: relative;
     }
     .hero h1 { 
       font-family: 'Cinzel', serif; 
@@ -135,11 +127,9 @@
       color: var(--gold-primary); 
       margin-bottom: 10px;
       text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-      transition: text-shadow 0.3s ease;
     }
     .hero p { color: var(--text-muted); font-size: 1rem; max-width: 600px; margin: 0 auto; }
 
-    /* Layout & Categories */
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
     .categories-bar { display: flex; gap: 10px; overflow-x: auto; padding: 30px 0 20px 0; }
     .cat-btn {
@@ -150,21 +140,18 @@
       border-radius: 20px;
       cursor: pointer;
       white-space: nowrap;
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      transition: all 0.3s ease;
     }
     .cat-btn:hover {
       border-color: var(--gold-primary);
-      transform: translateY(-2px);
       color: var(--gold-primary);
     }
     .cat-btn.active { 
       background-color: var(--gold-primary); 
       color: #000; 
       font-weight: 600; 
-      box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
     }
 
-    /* Animated Product Grid */
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -179,43 +166,19 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      position: relative;
-      animation: cardFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
-    }
-    
-    .product-card::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 50%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.15), transparent);
-      transform: translateX(-100%);
-      pointer-events: none;
-    }
-    
-    .product-card:hover::after {
-      animation: shimmer 1s ease-in-out;
+      animation: cardFadeUp 0.6s ease forwards;
+      transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
     }
 
     .product-card:hover {
-      transform: translateY(-8px) scale(1.02);
+      transform: translateY(-8px);
       border-color: var(--gold-primary);
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(212, 175, 55, 0.25);
     }
 
-    .product-image-wrap {
-      width: 100%; height: 210px; overflow: hidden; position: relative;
-    }
-    
-    .product-image { 
-      width: 100%; 
-      height: 100%; 
-      object-fit: cover; 
-      transition: transform 0.5s ease;
-    }
-    .product-card:hover .product-image {
-      transform: scale(1.08);
-    }
+    .product-image-wrap { width: 100%; height: 210px; overflow: hidden; }
+    .product-image { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .product-card:hover .product-image { transform: scale(1.08); }
 
     .product-info { padding: 15px; display: flex; flex-direction: column; flex-grow: 1; }
     .product-title { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
@@ -223,37 +186,21 @@
     .product-price { font-size: 1.1rem; color: var(--gold-primary); font-weight: 700; margin-top: auto; margin-bottom: 12px; }
     
     .add-cart-btn {
-      width: 100%; 
-      background: transparent; 
-      color: var(--gold-primary); 
-      border: 1px solid var(--gold-primary);
-      padding: 9px; 
-      border-radius: 4px; 
-      cursor: pointer; 
-      font-weight: 600;
-      transition: all 0.3s ease;
+      width: 100%; background: transparent; color: var(--gold-primary); 
+      border: 1px solid var(--gold-primary); padding: 9px; border-radius: 4px; 
+      cursor: pointer; font-weight: 600; transition: all 0.3s ease;
     }
-    .add-cart-btn:hover { 
-      background-color: var(--gold-primary); 
-      color: #000; 
-      box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
-    }
-    .add-cart-btn:active { transform: scale(0.97); }
+    .add-cart-btn:hover { background-color: var(--gold-primary); color: #000; }
 
-    /* Animated Cart Drawer */
     .cart-drawer {
       position: fixed; top: 0; right: -400px; width: 360px; height: 100%;
-      background-color: rgba(24, 24, 24, 0.95); 
-      backdrop-filter: blur(15px);
-      border-left: 1px solid var(--border-gold);
-      box-shadow: -5px 0 30px rgba(0,0,0,0.9); z-index: 2000; 
-      transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      display: flex; flex-direction: column; padding: 20px;
+      background-color: rgba(24, 24, 24, 0.95); backdrop-filter: blur(15px);
+      border-left: 1px solid var(--border-gold); z-index: 2000; 
+      transition: right 0.4s ease; display: flex; flex-direction: column; padding: 20px;
     }
     .cart-drawer.open { right: 0; }
     .cart-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-gold); padding-bottom: 15px; }
-    .close-cart { background: none; border: none; color: var(--gold-primary); font-size: 1.5rem; cursor: pointer; transition: transform 0.2s ease; }
-    .close-cart:hover { transform: rotate(90deg); }
+    .close-cart { background: none; border: none; color: var(--gold-primary); font-size: 1.5rem; cursor: pointer; }
     .cart-items { flex-grow: 1; overflow-y: auto; margin: 15px 0; max-height: 200px; }
     .cart-item { display: flex; justify-content: space-between; margin-bottom: 12px; border-bottom: 1px solid #2a2a2a; padding-bottom: 8px; }
     
@@ -261,23 +208,13 @@
     .checkout-inputs input, .checkout-inputs textarea {
       padding: 8px 10px; background: #2a2a2a; border: 1px solid var(--border-gold);
       color: #fff; border-radius: 4px; font-size: 0.85rem; font-family: inherit;
-      transition: border-color 0.3s ease;
-    }
-    .checkout-inputs input:focus, .checkout-inputs textarea:focus {
-      outline: none; border-color: var(--gold-primary);
     }
     
     .wa-checkout-btn {
       width: 100%; background: #25D366; color: #000; border: none;
       padding: 12px; font-weight: 700; border-radius: 4px; cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
-    }
-    .wa-checkout-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
     }
 
-    /* Animated Secret Admin Modal */
     .admin-modal {
       display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 3000; 
@@ -286,16 +223,15 @@
     .admin-content {
       max-width: 900px; margin: 0 auto; background: var(--card-bg);
       border: 1px solid var(--gold-primary); border-radius: 8px; padding: 25px; position: relative;
-      animation: modalPop 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.8), 0 0 20px rgba(212, 175, 55, 0.2);
+      animation: modalPop 0.4s ease;
     }
-    .admin-close { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; color: var(--gold-primary); cursor: pointer; transition: transform 0.2s ease; }
-    .admin-close:hover { transform: scale(1.2); }
+    .admin-close { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; color: var(--gold-primary); cursor: pointer; }
     .admin-form { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
     .admin-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .admin-form input, .admin-form select, .admin-form textarea {
       padding: 10px; background: #2a2a2a; border: 1px solid var(--border-gold); color: #fff; border-radius: 4px; font-family: inherit;
     }
+    .file-input-label { font-size: 0.8rem; color: var(--gold-primary); margin-bottom: 2px; display: block; }
     table { width: 100%; border-collapse: collapse; margin-top: 15px; }
     th, td { border: 1px solid var(--border-gold); padding: 8px; text-align: left; font-size: 0.85rem; }
     th { color: var(--gold-primary); background: #2a2a2a; }
@@ -318,7 +254,7 @@
     </div>
   </nav>
 
-  <!-- Animated Hero Banner -->
+  <!-- Hero Banner -->
   <section class="hero">
     <h1>Smarter Shopping For Everyday Life</h1>
     <p>Handpicked electronics, mobile tech, and luxury lifestyle accessories.</p>
@@ -336,12 +272,12 @@
     <div class="product-grid" id="product-grid"></div>
   </div>
 
-  <!-- Standard Footer (With Hidden Dot Trigger) -->
+  <!-- Footer -->
   <footer style="text-align: center; padding: 30px 0; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid var(--border-gold); margin-top: 50px;">
     &copy; 2026 AuraMart Global. All rights reserved. <span id="secret-trigger" onclick="promptAdminLogin()" style="cursor: default;">.</span>
   </footer>
 
-  <!-- Cart Slide-Out Drawer -->
+  <!-- Cart Drawer -->
   <div class="cart-drawer" id="cart-drawer">
     <div class="cart-header">
       <h3 style="font-family:'Cinzel', serif; color: var(--gold-primary);">Your Cart</h3>
@@ -369,13 +305,12 @@
     </div>
   </div>
 
-  <!-- Embedded Admin Panel Modal -->
+  <!-- Admin Modal -->
   <div class="admin-modal" id="admin-modal">
     <div class="admin-content">
       <span class="admin-close" onclick="toggleAdminModal(false)">&times;</span>
       <h2 style="font-family: 'Cinzel', serif; color: var(--gold-primary); margin-bottom: 15px;">AuraMart Admin Panel</h2>
       
-      <!-- Add Product -->
       <h3 style="color: var(--gold-primary); margin-bottom: 10px; font-size: 1rem;">Publish New Product</h3>
       <div class="admin-form">
         <div class="admin-form-row">
@@ -388,13 +323,15 @@
             <option value="Accessories">Accessories</option>
             <option value="Fashion">Fashion</option>
           </select>
-          <input type="text" id="prod-image" placeholder="Image Direct Link URL (https://...)" />
+          <div>
+            <label class="file-input-label">Select Image from Device:</label>
+            <input type="file" id="prod-file" accept="image/*" />
+          </div>
         </div>
         <textarea id="prod-desc" placeholder="Product Description" rows="2"></textarea>
       </div>
-      <button class="cart-btn" onclick="addProduct()" style="width: 100%; margin-bottom: 25px;">Add Product to Store</button>
+      <button class="cart-btn" id="add-prod-btn" onclick="addProduct()" style="width: 100%; margin-bottom: 25px;">Add Product to Store</button>
 
-      <!-- Customer Orders -->
       <h3 style="color: var(--gold-primary); margin-bottom: 10px; font-size: 1rem;">Recent Orders</h3>
       <table>
         <thead>
@@ -415,14 +352,13 @@
 
   <script>
     const SUPABASE_URL = 'https://yficgqljusfrnqevycmq.supabase.co';
-    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlmaWNncWxqdXNmcm5xZXZ5Y21xIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkzMjA1MjYsImV4cCI6MjEwNDg5NjUyNn0.R--xWu-PYMzPkauK4UXb_6LHK8_xyXASH2gWKp_QpOk';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInRefiI6InlmaWNncWxqdXNmcm5xZXZ5Y21xIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODkzMjA1MjYsImV4cCI6MjEwNDg5NjUyNn0.R--xWu-PYMzPkauK4UXb_6LHK8_xyXASH2gWKp_QpOk';
     const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
     let allProducts = [];
     let cart = [];
     const ADMIN_PASS = 'Balogun20000@@@';
 
-    // Key combination trigger (Ctrl + Shift + A)
     window.addEventListener('keydown', (e) => {
       if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'a') {
         e.preventDefault();
@@ -456,10 +392,9 @@
         grid.innerHTML = '<p style="color: var(--text-muted); grid-column: 1/-1; text-align: center; padding: 40px 0;">No products available yet. Press Ctrl+Shift+A to publish items.</p>';
         return;
       }
-      items.forEach((p, index) => {
-        const animationDelay = (index * 0.08).toFixed(2);
+      items.forEach((p) => {
         grid.innerHTML += `
-          <div class="product-card" style="animation-delay: ${animationDelay}s">
+          <div class="product-card">
             <div class="product-image-wrap">
               <img src="${p.image_url}" alt="${p.title}" class="product-image" onerror="this.src='https://via.placeholder.com/250'" />
             </div>
@@ -575,20 +510,54 @@
       const title = document.getElementById('prod-title').value.trim();
       const price = parseFloat(document.getElementById('prod-price').value);
       const category = document.getElementById('prod-category').value;
-      const image_url = document.getElementById('prod-image').value.trim();
+      const fileInput = document.getElementById('prod-file');
       const description = document.getElementById('prod-desc').value.trim();
+      const btn = document.getElementById('add-prod-btn');
 
-      if (!title || !price || !image_url) return alert('Please complete Title, Price, and Image URL.');
+      if (!title || !price || fileInput.files.length === 0) {
+        return alert('Please enter Title, Price, and select an Image File from your device.');
+      }
 
-      const { error } = await supabaseClient.from('products').insert([{ title, price, category, image_url, description }]);
+      const file = fileInput.files[0];
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${Date.now()}.${fileExt}`;
+      const filePath = `${fileName}`;
 
-      if (error) {
-        alert('Error publishing product: ' + error.message);
+      btn.innerText = 'Uploading Image...';
+      btn.disabled = true;
+
+      const { data: uploadData, error: uploadError } = await supabaseClient
+        .storage
+        .from('product-images')
+        .upload(filePath, file);
+
+      if (uploadError) {
+        btn.innerText = 'Add Product to Store';
+        btn.disabled = false;
+        return alert('Error uploading image: ' + uploadError.message + '. Ensure public bucket "product-images" is created in Supabase.');
+      }
+
+      const { data: urlData } = supabaseClient
+        .storage
+        .from('product-images')
+        .getPublicUrl(filePath);
+
+      const image_url = urlData.publicUrl;
+
+      const { error: dbError } = await supabaseClient
+        .from('products')
+        .insert([{ title, price, category, image_url, description }]);
+
+      btn.innerText = 'Add Product to Store';
+      btn.disabled = false;
+
+      if (dbError) {
+        alert('Error publishing product: ' + dbError.message);
       } else {
-        alert('Product published successfully!');
+        alert('Product published successfully with uploaded image!');
         document.getElementById('prod-title').value = '';
         document.getElementById('prod-price').value = '';
-        document.getElementById('prod-image').value = '';
+        document.getElementById('prod-file').value = '';
         document.getElementById('prod-desc').value = '';
         loadLiveProducts();
       }
